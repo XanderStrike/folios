@@ -1,0 +1,103 @@
+<!-- FYI, you can view/fork my portfolio at https://github.com/XanderStrike/folio -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alexander Standke | Design & Development</title>
+  <meta property="og:image" content="img/me.png">
+  <link href='style.css' rel='stylesheet' type='text/css'>
+  <script>
+    window.onload = function() {
+      document.body.className += ' loaded'
+    };
+  </script>
+</head>
+<body>
+  <section id="title-banner" class="banner">
+    <div class="inner">
+      <h1>Alexander Standke</h1>
+      <h2>Design & Development</h2>
+    </div>
+  </section>
+
+  <section class="content">
+    <center><img src="img/me.png"></center>
+    <h1>I solve practical problems.</h1>
+
+    <p class="center skinny">I am a student, Ruby on Rails developer, web designer, photographer, cyclist, and adventurer. I like building things almost as much as I like taking them apart. I love building products that make things easier while getting out of the way. I have an obsession with simplicity and clarity, and strive for perfection and efficiency in all things. I am a recent graduate of <a href="http://www.westmont.edu" target="new">Westmont College</a>, and currently work as a software engineer at <a href="http://appfolio.com">Appfolio</a></p>
+
+    <table>
+      <tr><td colspan=3 style="text-align:center"><a href="astandke.pub">Public Key</a></td></tr>
+      <tr><td>
+        <a href="http://www.linkedin.com/pub/alexander-standke/5a/aa8/7a4" target="new">
+          <img src="http://i.imgur.com/KtDpkID.png"> 
+        </a>
+      </td><td>
+        <a href="https://github.com/xanderstrike" target="new">
+          <img src="http://i.imgur.com/65lnGpg.png">
+        </a>
+      </td><td>
+        <a href="http://talkingtoflowers.tumblr.com" target="new">
+          <img src="http://i.imgur.com/jxvXvX6.png">
+        </a>
+    </td></tr></table>
+  </section>
+
+  <section id="banner0" class="banner">
+    <div class="inner">
+      <h1>Open Source Projects</h1>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="expand-div" id="caketop" onclick="expand('#caketop')" >
+      <button id="caketop-btn"></button>
+      <h2>Caketop Theater</h2>
+      <img src="img/caketop.jpg" width="500px" class="image-right">
+      <p>As it becomes more and more common to host home media servers, the problem of how to get that media out to client computers becomes a more interesting one. Caketop Theater attempts to address this problem in a novel way, by providing a web based interface for browsing, and an HTML5 player for movies, tv shows, and music. Given a directory in which movies, music, or tv shows reside, it will download metadata (cover art, album art, release date, genre, cast, etc) and provide users with the ability to browse, filter, and search based on that metadata. Caketop Theater is an open source web app built on Ruby on Rails, served through Apache/Passenger. The code is available for perusal <a href="https://github.com/XanderStrike/caketop-theater/">here</a>.</p>
+    </div>
+  </section>
+
+  <section id="contact-banner" class="banner">
+    <div class="inner">
+      <div class="col-2">
+        <div>
+          <p class="skinny">"The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination. Few media of creation are so flexible, so easy to polish and rework, so readily capable of realizing grand conceptual structures. Yet the program construct, unlike the poet's words, is real in the sense that it moves and works, producing visible outputs separately from the construct itself. It prints results, draws pictures, produces sounds, moves arms. The magic of myth and legend has come true in our time. One types the correct incantation on a keyboard, and a display screen comes to life, showing things that never were nor could be."
+            <br><br>
+            -Frederick Brooks</p>
+        </div>
+        <div>
+          <h1>Contact</h1>
+          <h3>xanderstrike@gmail.com</h3>
+          <h3>818.703.2087</h3>
+          <h3><a href="Resume.pdf" target="new">R&eacute;sum&eacute;</a></h3>
+          <br><br><br><br><br><br><br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="foot">
+    Handbuilt in <a href="sublimetext.com" target="new">Sublime Text</a> | 
+    Currently listening to <a id="lastfm" href="http://www.last.fm/user/xanderstrike"></a> |
+    &copy; Alexander Standke 2013
+  </section>
+
+
+  <script src="jquery-1.10.1.min.js"></script>
+  <script>
+  $.getJSON('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=xanderstrike&api_key=a0cdf76d44c313ba809c1f1afb312240&format=json', function(data) {
+    var track = data.recenttracks.track[0]
+    $('#lastfm').html(track.artist["#text"] + " - " + track.name)
+  });
+
+  function expand(id) {
+      if ($(id).height() === 150) {
+        $(id).animate({'maxHeight': ($(id +" img").height()+30)}, 1000);
+      } else {
+        $(id).animate({'maxHeight': 150}, 1000);
+      }
+      $(id+"-btn").toggleClass("open");
+    }
+  </script>
+</body>
+</html>
